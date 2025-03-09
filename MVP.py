@@ -22,8 +22,13 @@ except KeyError:
 
 def generate_ppt_structure(user_input):
     """Generate structured PowerPoint content using LLM API"""
-    openai.api_key = DEEPSEEK_API_KEY
-    openai.api_base = DEEPSEEK_API_URL
+    from openai import OpenAI
+    
+    # Initialize client with base URL and API key
+    client = OpenAI(
+        api_key=DEEPSEEK_API_KEY,
+        base_url=DEEPSEEK_API_URL
+    )
 
     prompt = f"""
 作为专业PPT设计师，请根据以下需求生成详细结构，保证所有内容为正式中文输出：
@@ -53,14 +58,14 @@ def generate_ppt_structure(user_input):
 """
 
     try:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="deepseek-reasoner",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.4
         )
         
         # Parse the response
-        result = response.choices[0].message['content']
+        result = response.choices[0].message.content
         
         try:
             return json.loads(result)
