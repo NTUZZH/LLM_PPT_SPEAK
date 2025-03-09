@@ -5,6 +5,8 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 from pptx import Presentation
 from MVP import generate_ppt_structure, create_ppt, generate_speeches
+import json
+import re
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/generated'
@@ -207,8 +209,8 @@ def generate():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    # Use environment variable for port with a default of 5000
-    port = int(os.environ.get('PORT', 5000))
+    # Use environment variable for port with a default of 8080 instead of 5000
+    port = int(os.environ.get('PORT', 8080))
     # In production, set debug to False
     debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     app.run(host='0.0.0.0', port=port, debug=debug)

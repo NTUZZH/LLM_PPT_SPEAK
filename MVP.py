@@ -11,10 +11,14 @@ from azure.cognitiveservices.speech import SpeechConfig, SpeechSynthesisOutputFo
 load_dotenv()
 
 # API Configuration
-DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
-DEEPSEEK_API_URL = "https://api.deepseek.com/v1"
-AZURE_SPEECH_KEY = os.environ['AZURE_SPEECH_KEY']
-AZURE_SPEECH_REGION = os.environ['AZURE_SPEECH_REGION']
+try:
+    DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
+    AZURE_SPEECH_KEY = os.environ['AZURE_SPEECH_KEY']
+    AZURE_SPEECH_REGION = os.environ['AZURE_SPEECH_REGION']
+    DEEPSEEK_API_URL = "https://api.deepseek.com/v1"
+except KeyError:
+    raise KeyError("API KEY not found. Make sure it's set in your .env file or environment variables.")
+
 
 def generate_ppt_structure(user_input):
     """Generate structured PowerPoint content using LLM API"""
