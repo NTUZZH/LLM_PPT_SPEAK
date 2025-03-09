@@ -125,20 +125,20 @@ def generate_speeches(data, output_dir="audio"):
     speech_config.set_speech_synthesis_output_format(
         SpeechSynthesisOutputFormat.Audio24Khz160KBitRateMonoMp3)  # High quality audio
     
-    # Choose a natural male voice - Guy is a good professional male voice
-    speech_config.speech_synthesis_voice_name = "zh-CN-XiaoxiaoNeural"
+    # Choose an engaging female voice for English presentations
+    speech_config.speech_synthesis_voice_name = "en-US-JennyNeural"
     
     synthesizer = SpeechSynthesizer(speech_config=speech_config)
     
     audio_files = []
     for i, slide in enumerate(data['slides']):
-        # Use SSML with prosody adjustments for more natural presentation style
+        # Use SSML with prosody adjustments for more engaging, enthusiastic style
         ssml = f"""
         <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
                xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
             <voice name="{speech_config.speech_synthesis_voice_name}">
-                <prosody rate="0.9" pitch="+0%">
-                    <mstts:express-as style="professional" styledegree="1">
+                <prosody rate="1.0" pitch="+5%">
+                    <mstts:express-as style="cheerful" styledegree="1.2">
                         {slide['speech']}
                     </mstts:express-as>
                 </prosody>
