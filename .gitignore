@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.DS_Store
+static/generated/*
+static/slides/*
+static/audio/*
+!static/generated/.gitkeep
+!static/slides/.gitkeep
+!static/audio/.gitkeep

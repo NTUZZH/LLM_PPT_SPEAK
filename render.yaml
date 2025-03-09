@@ -1,0 +1,11 @@
+cat > render.yaml << EOL
+services:
+  - type: web
+    name: llm-ppt-speaker
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+EOL

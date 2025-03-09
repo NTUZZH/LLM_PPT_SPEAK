@@ -1,0 +1,2 @@
+mkdir -p static/generated static/slides static/audio
+touch static/generated/.gitkeep static/slides/.gitkeep static/audio/.gitkeep

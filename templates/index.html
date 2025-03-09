@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT Speaker AI - Generate Presentations</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PPT Speaker AI</h1>
+        <p style="text-align: center; margin-bottom: 30px;">Generate professional presentations with AI-powered voice narration</p>
+        
+        <form action="/generate" method="post" id="generator-form">
+            <div class="form-group">
+                <div class="input-container">
+                    <textarea id="topic" name="topic" rows="4" required 
+                        placeholder="Enter a topic for your presentation..."></textarea>
+                    <div class="prompt-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" id="generate-btn">
+                <span class="default-text">Generate Presentation</span>
+                <span class="loading-text">Generating... <span class="spinner"></span></span>
+            </button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Powered by Deepseek API and Azure Speech Services</p>
+    </div>
+
+    <script>
+        document.getElementById('generator-form').addEventListener('submit', function() {
+            document.getElementById('generate-btn').classList.add('loading');
+            // Disable the button to prevent multiple submissions
+            document.getElementById('generate-btn').disabled = true;
+        });
+    </script>
+</body>
+</html>
