@@ -3,6 +3,7 @@
 An AI-powered web application that generates presentation slides and accompanying speech from user-provided topics.
 
 ## Features
+
 - Generates complete presentation structure from a simple topic
 - Creates PowerPoint presentations automatically
 - Converts slides to images for web viewing
@@ -25,15 +26,18 @@ LLM_PPT_SPEAK/
 ```
 
 ## Setup
+
 1. Clone this repository
 2. Install dependencies: `pip install -r requirements.txt`
 3. Run the application: `python app.py`
 
 ## Deployment
+
 This application can be deployed to platforms like Heroku, Render, or Vercel.
 
 ## Environment Variables
-- `PORT`: Port to run the application (default: 5000)
+
+- `PORT`: Port to run the application (default: 8080)
 - `FLASK_DEBUG`: Set to 'True' for debug mode
 
 ## Configuration
@@ -45,14 +49,13 @@ This application can be deployed to platforms like Heroku, Render, or Vercel.
 ## Usage
 
 1. Start the application:
+
 ```bash
 python app.py
 ```
 
-2. Open your browser to `http://127.0.0.1:5000`
-
+2. Open your browser to `http://127.0.0.1:8080`
 3. Enter a presentation topic and submit
-
 4. Navigate through your AI-generated presentation with audio narration
 
 ## Notes
